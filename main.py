@@ -5,7 +5,7 @@ class Asiento:
         self.registro = registro
 
     def cambiarColor(self, color):
-        if(color=="amarillo" or color=="negro" or color=="blanco" or color=="verde" or color=="rojo"):
+        if color=="amarillo" or color=="negro" or color=="blanco" or color=="verde" or color=="rojo":
             self.color=color 
 
 
@@ -25,19 +25,21 @@ class Auto:
 
     def cantidadAsientos(self): 
         n= 0
-        if self.asientos != None:
-            for i in self.asientos:
-                if i != None:
-                    n += 1
+        for i in self.asientos:
+            if i != None:
+                n += 1
         return n       
 
 	
 
     def verificarIntegridad(self): 
-        if(self.asientos[0].registro==self.registro and self.registro==self.motor.registro and self.asientos[0].registro== self.motor.registro):
-            return "Auto original"
-        else:
-            return "Las piezas no son originales"          
+        for i in self.asientos:
+            if i != None:
+                 if i.registro!=self.registro or self.registro!=self.motor.registro or i.registro!= self.motor.registro:
+                     return "Las piezas no son originales"
+                     break
+                
+        return "Auto original"          
 
     
 

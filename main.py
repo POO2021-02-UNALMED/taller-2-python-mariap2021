@@ -29,27 +29,26 @@ class Auto:
     CantidadCreados=0
 
     def __init__(self, modelo,precio,asientos,marca,registro):
-        self.modelo=modelo
-        self.precio=precio
-        self.asientos=list(asientos)
-        self.marca=marca
-        self.registro=registro
+        self.modelo= modelo
+        self.precio= precio
+        self.asientos= asientos
+        self.marca= marca
+        self.registro= registro
 
-    def cantidadAsientos(self): 
+    def cantidadAsientos(self):
         n= 0
-        if None != self.asientos:
-            for asientos in self.asientos:
-                if asientos!= None:
-                    n += 1
-        return n       
-
-	
-
-    def verificarIntegridad(self): 
-        if self.asientos[0].registro==self.registro and self.registro==self.motor.registro and self.asientos[0].registro== self.motor.registro:
-            return "Auto original"
-                
-        else:
-            return "Las piezas no son originales"          
-
-        return"Las piezas no son originales"            
+        for i in self.asientos:
+            if i != None:
+                n += 1
+        return n
+    
+    def verificarIntegridad(self):
+        for i in self.asientos:
+            if i != None:
+                ter = i.registro
+                if self.auto.registro == self.registro.motor and  self.registro.auto== ter:
+                    continue
+                else:
+                    return "Las piezas no son originales"
+        return "Auto original"
+             

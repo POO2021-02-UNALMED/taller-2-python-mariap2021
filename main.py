@@ -34,6 +34,7 @@ class Auto:
         self.asientos= asientos
         self.marca= marca
         self.registro= registro
+        self.motor=motor
 
     def cantidadAsientos(self):
         numero= 0
